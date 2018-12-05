@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>CF#425(Div.2)题解(转) | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="MinHow,MinHow's Blog">
+  
+  <meta name="description" content="掉了40分- - CF里我打得第一个rated比赛。">
+<meta name="keywords" content="ACM,数学,C&#x2F;C++,二分搜索,实现">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CF#425(Div.2)题解(转)">
+<meta property="og:url" content="http://yoursite.com/2017/07/30/CF/CF425/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="掉了40分- - CF里我打得第一个rated比赛。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-12-05T10:24:03.237Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CF#425(Div.2)题解(转)">
+<meta name="twitter:description" content="掉了40分- - CF里我打得第一个rated比赛。">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">MinHow&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        MinHow&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        一个专注 WEB 开发的技术博客
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="MinHow" target="_blank" href="//minhow.com">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/wongminho">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/WongMinHo">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter" target="_blank" href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-CF/CF425" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      CF#425(Div.2)题解(转)
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/题解/">题解</a>
+                  
+                      <a href="/categories/比赛/">比赛</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2017-07-30
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <p>掉了40分- - CF里我打得第一个rated比赛。</p>
+<a id="more"></a>
+<p><a href="http://codeforces.com/blog/entry/53461" target="_blank" rel="noopener">题解来源</a></p>
+<h1 id="A-Sasha-and-Sticks"><a href="#A-Sasha-and-Sticks" class="headerlink" title="A.Sasha and Sticks"></a>A.Sasha and Sticks</h1><p><a href="http://codeforces.com/problemset/problem/832/A" target="_blank" rel="noopener">传送门</a></p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><blockquote>
+<p>玩家总共会进行n/k(向下取整）轮。如果这个数为偶，Sasha比Lena多进行一轮并因此赢得比赛；不然她们进行相同轮数，Sasha将不会获得胜利。</p>
+</blockquote>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e5</span> + <span class="number">17</span>, lg = <span class="number">17</span>;</span><br><span class="line"></span><br><span class="line">ll n, k;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	ios::sync_with_stdio(<span class="number">0</span>), <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n &gt;&gt; k;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; ((n / k) &amp; <span class="number">1</span> ? <span class="string">"YES"</span> : <span class="string">"NO"</span>) &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="B-Petya-and-Exam"><a href="#B-Petya-and-Exam" class="headerlink" title="B.Petya and Exam"></a>B.Petya and Exam</h1><p><a href="http://codeforces.com/problemset/problem/832/B" target="_blank" rel="noopener">传送门</a></p>
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><blockquote>
+<p>给出一串好的字符R及一串样例S，？可被任何好的字符替代，*可替代任意长度的坏字符。对n个字符串T，询问T是否能匹配样例S。</p>
+</blockquote>
+<h2 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h2><blockquote>
+<p>模拟题。T的长度必大于|S-1|;将S中*前的字符S1与T的前|S1|个字符进行匹配;将S中*后的字符S2与T的后|S2|个字符进行匹配;T中剩下的字符全为坏字符。否则T不与S匹配。</p>
+</blockquote>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e5</span> + <span class="number">17</span>, z = <span class="number">26</span>;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">bool</span> good[z];</span><br><span class="line"><span class="built_in">string</span> goods, pat;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">mat</span><span class="params">(<span class="built_in">string</span> pat, <span class="built_in">string</span> s)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(pat.size() != s.size())</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.size(); i++)</span><br><span class="line">		<span class="keyword">if</span>(pat[i] != <span class="string">'?'</span>)&#123;</span><br><span class="line">			<span class="keyword">if</span>(s[i] != pat[i])</span><br><span class="line">				<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="keyword">if</span>(!good[s[i] - <span class="string">'a'</span>])</span><br><span class="line">				<span class="keyword">return</span> <span class="number">0</span>;				</span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	ios::sync_with_stdio(<span class="number">0</span>), <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; goods &gt;&gt; pat &gt;&gt; n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">auto</span> c : goods)</span><br><span class="line">		good[c - <span class="string">'a'</span>] = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">auto</span> p = pat.find(<span class="string">'*'</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="built_in">string</span> s; n--; )&#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; s;</span><br><span class="line">		<span class="keyword">if</span>(s.size() &lt; pat.size() - <span class="number">1</span>)</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; <span class="string">"NO"</span> &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(p == <span class="built_in">string</span> :: npos)</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; (mat(pat, s) ? <span class="string">"YES"</span> : <span class="string">"NO"</span>) &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="keyword">bool</span> ok = <span class="number">1</span>;</span><br><span class="line">			ok &amp;= mat(pat.substr(<span class="number">0</span>, p), s.substr(<span class="number">0</span>, p));</span><br><span class="line">			reverse(pat.begin(), pat.end());</span><br><span class="line">			reverse(s.begin(), s.end());</span><br><span class="line">			p = pat.size() - p - <span class="number">1</span>;</span><br><span class="line">			ok &amp;= mat(pat.substr(<span class="number">0</span>, p), s.substr(<span class="number">0</span>, p));</span><br><span class="line">			reverse(pat.begin(), pat.end());</span><br><span class="line">			reverse(s.begin(), s.end());</span><br><span class="line">			p = pat.size() - p - <span class="number">1</span>;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i = p; i &lt; s.size() - (pat.size() - p - <span class="number">1</span>); i++)</span><br><span class="line">				ok &amp;= !good[ s[i] - <span class="string">'a'</span> ];</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; (ok ? <span class="string">"YES"</span> : <span class="string">"NO"</span>) &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="C-Strange-Radiation"><a href="#C-Strange-Radiation" class="headerlink" title="C.Strange Radiation"></a>C.Strange Radiation</h1><p><a href="http://codeforces.com/problemset/problem/832/C" target="_blank" rel="noopener">传送门</a></p>
+<h2 id="题意-1"><a href="#题意-1" class="headerlink" title="题意"></a>题意</h2><blockquote>
+<p>告诉你每个人的位置，面朝方向，速度及爆炸冲击波的速度，问所有人离开的最短时间。</p>
+</blockquote>
+<h2 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h2><blockquote>
+<p>时间的区间为[0,10^6]。用两个区间分别记录每个人在时间内离开的炸弹范围。如果范围有交集则可行，不然不可，依次为条件进行二分。</p>
+</blockquote>
+<h3 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> ll = <span class="keyword">long</span> <span class="keyword">long</span>;</span><br><span class="line"><span class="keyword">using</span> ld = <span class="keyword">long</span> <span class="keyword">double</span>;</span><br><span class="line"><span class="keyword">using</span> D = <span class="keyword">double</span>;</span><br><span class="line"><span class="keyword">using</span> uint = <span class="keyword">unsigned</span> <span class="keyword">int</span>;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">using</span> pair2 = pair&lt;T, T&gt;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> WIN32</span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">define</span> LLD <span class="meta-string">"%I64d"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">define</span> LLD <span class="meta-string">"%lld"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pb push_back</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mp make_pair</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> all(x) (x).begin(),(x).end()</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> fi first</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> se second</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> OPEN = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> CLOSE = <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">tsob</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> x, t, id;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="keyword">operator</span>&lt;(<span class="keyword">const</span> tsob &amp;a, <span class="keyword">const</span> tsob &amp;b)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (a.x != b.x) <span class="keyword">return</span> a.x &lt; b.x;</span><br><span class="line">    <span class="keyword">return</span> a.t == OPEN &amp;&amp; b.t == CLOSE;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">100005</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> DR = <span class="number">1000000</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> curb[<span class="number">2</span>];</span><br><span class="line"><span class="built_in">vector</span>&lt;tsob&gt; sobs;</span><br><span class="line"><span class="keyword">int</span> x[maxn], v[maxn], dir[maxn], dist[maxn];</span><br><span class="line"><span class="keyword">int</span> n, s;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">can</span><span class="params">(ld t)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    sobs.clear();</span><br><span class="line">    curb[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    curb[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (dist[i] &lt;= (ll)v[i] * t)</span><br><span class="line">        &#123;</span><br><span class="line">            curb[dir[i]]++;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (dist[i] &lt;= (ll)(v[i] + s) * t)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// A * r + B = 0</span></span><br><span class="line">            ld A = (ld)<span class="number">1</span> / (s - v[i]) - (ld)v[i] / (s - v[i]) / (s + v[i]);</span><br><span class="line">            ld B = (ld)dist[i] / (s + v[i]) - t;</span><br><span class="line">            ld r = -B / A;</span><br><span class="line">            <span class="keyword">if</span> (dir[i] == <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                sobs.pb(&#123;x[i], OPEN, dir[i]&#125;);</span><br><span class="line">                sobs.pb(&#123;lround(min((ld)DR + <span class="number">1</span>, <span class="built_in">floor</span>(x[i] + r))), CLOSE, dir[i]&#125;);</span><br><span class="line">            &#125; <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                sobs.pb(&#123;lround(max((ld)<span class="number">-1.0</span>, <span class="built_in">ceil</span>(x[i] - r))), OPEN, dir[i]&#125;);</span><br><span class="line">                sobs.pb(&#123;x[i], CLOSE, dir[i]&#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (curb[<span class="number">0</span>] &gt; <span class="number">0</span> &amp;&amp; curb[<span class="number">1</span>] &gt; <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    sort(all(sobs));</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> t : sobs)</span><br><span class="line">    &#123;</span><br><span class="line">        curb[t.id] += t.t;</span><br><span class="line">        <span class="keyword">if</span> (curb[<span class="number">0</span>] &gt; <span class="number">0</span> &amp;&amp; curb[<span class="number">1</span>] &gt; <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;s);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;x[i], &amp;v[i], &amp;dir[i]);</span><br><span class="line">        dir[i]--;</span><br><span class="line">        <span class="keyword">if</span> (dir[i] == <span class="number">0</span>) dist[i] = x[i];</span><br><span class="line">        <span class="keyword">else</span> dist[i] = DR - x[i];</span><br><span class="line">    &#125;</span><br><span class="line">    ld l = <span class="number">0</span>;</span><br><span class="line">    ld r = <span class="number">1e6</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> IT = <span class="number">0</span>; IT &lt; <span class="number">50</span>; IT++)</span><br><span class="line">    &#123;</span><br><span class="line">        ld m = (l + r) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (can(m)) r = m;</span><br><span class="line">        <span class="keyword">else</span> l = m;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>.precision(<span class="number">20</span>);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; (<span class="keyword">double</span>)(l + r) / <span class="number">2</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年12月05日 18:24</p>
+        <p>原始链接： <a class="post-url" href="/2017/07/30/CF/CF425/" title="CF#425(Div.2)题解(转)">http://yoursite.com/2017/07/30/CF/CF425/</a></p>
+        <footer>
+            <a href="http://yoursite.com">
+                <img src="/images/logo.png" alt="John Doe">
+                John Doe
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/07/30/CF/CF425/&title=《CF#425(Div.2)题解(转)》 — Hexo&pic=http://yoursite.comimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/07/30/CF/CF425/&title=《CF#425(Div.2)题解(转)》 — Hexo&source=掉了40分- - CF里我打得第一个rated比赛。" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/07/30/CF/CF425/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《CF#425(Div.2)题解(转)》 — Hexo&url=http://yoursite.com/2017/07/30/CF/CF425/&via=http://yoursite.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/07/30/CF/CF425/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2017/07/30/CF/CF425/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/ACM/" class="color4">ACM</a>
+      
+    <a href="/tags/数学/" class="color3">数学</a>
+      
+    <a href="/tags/C/C++/" class="color1">C/C++</a>
+      
+    <a href="/tags/二分搜索/" class="color5">二分搜索</a>
+      
+    <a href="/tags/实现/" class="color3">实现</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#A-Sasha-and-Sticks"><span class="post-toc-text">A.Sasha and Sticks</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#思路"><span class="post-toc-text">思路</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码"><span class="post-toc-text">代码</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#B-Petya-and-Exam"><span class="post-toc-text">B.Petya and Exam</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#题意"><span class="post-toc-text">题意</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#思路-1"><span class="post-toc-text">思路</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码-1"><span class="post-toc-text">代码</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#C-Strange-Radiation"><span class="post-toc-text">C.Strange Radiation</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#题意-1"><span class="post-toc-text">题意</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#思路-2"><span class="post-toc-text">思路</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码-2"><span class="post-toc-text">代码</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2017/07/31/CF/CF426/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          CF#426(Div.2)题解
+        
+      </span>
+    </a>
+  
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 John Doe<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://yoursite.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/Blog/">Blog</a><a class="category-link" href="/categories/DP/">DP</a><a class="category-link" href="/categories/公式/">公式</a><a class="category-link" href="/categories/博弈/">博弈</a><a class="category-link" href="/categories/博弈论/">博弈论</a><a class="category-link" href="/categories/字符串/">字符串</a><a class="category-link" href="/categories/数论/">数论</a><a class="category-link" href="/categories/算法/">算法</a><a class="category-link" href="/categories/题解/">题解</a><a class="category-link" href="/categories/题解/比赛/">比赛</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/ACM/" style="font-size: 17.5px;">ACM</a> <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/C-C/" style="font-size: 15px;">C/C++</a> <a href="/tags/DP/" style="font-size: 10px;">DP</a> <a href="/tags/KMP/" style="font-size: 10px;">KMP</a> <a href="/tags/bfs/" style="font-size: 10px;">bfs</a> <a href="/tags/dp/" style="font-size: 10px;">dp</a> <a href="/tags/polya/" style="font-size: 10px;">polya</a> <a href="/tags/二分搜索/" style="font-size: 10px;">二分搜索</a> <a href="/tags/前缀和/" style="font-size: 10px;">前缀和</a> <a href="/tags/博弈/" style="font-size: 20px;">博弈</a> <a href="/tags/实现/" style="font-size: 10px;">实现</a> <a href="/tags/数学/" style="font-size: 12.5px;">数学</a> <a href="/tags/斐波那契数列/" style="font-size: 10px;">斐波那契数列</a> <a href="/tags/模拟/" style="font-size: 10px;">模拟</a> <a href="/tags/素数/" style="font-size: 10px;">素数</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/ACM/" style="font-size: 17.5px;">ACM</a> <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/C-C/" style="font-size: 15px;">C/C++</a> <a href="/tags/DP/" style="font-size: 10px;">DP</a> <a href="/tags/KMP/" style="font-size: 10px;">KMP</a> <a href="/tags/bfs/" style="font-size: 10px;">bfs</a> <a href="/tags/dp/" style="font-size: 10px;">dp</a> <a href="/tags/polya/" style="font-size: 10px;">polya</a> <a href="/tags/二分搜索/" style="font-size: 10px;">二分搜索</a> <a href="/tags/前缀和/" style="font-size: 10px;">前缀和</a> <a href="/tags/博弈/" style="font-size: 20px;">博弈</a> <a href="/tags/实现/" style="font-size: 10px;">实现</a> <a href="/tags/数学/" style="font-size: 12.5px;">数学</a> <a href="/tags/斐波那契数列/" style="font-size: 10px;">斐波那契数列</a> <a href="/tags/模拟/" style="font-size: 10px;">模拟</a> <a href="/tags/素数/" style="font-size: 10px;">素数</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

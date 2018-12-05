@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>CF#427(Div.2)题解 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="MinHow,MinHow's Blog">
+  
+  <meta name="description" content="涨回1500…">
+<meta name="keywords" content="ACM,C&#x2F;C++,前缀和">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CF#427(Div.2)题解">
+<meta property="og:url" content="http://yoursite.com/2017/08/02/CF/CF427/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="涨回1500…">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://i2.tiimg.com/1949/c1a5dc90004ac539.png">
+<meta property="og:updated_time" content="2018-12-05T10:24:03.238Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CF#427(Div.2)题解">
+<meta name="twitter:description" content="涨回1500…">
+<meta name="twitter:image" content="http://i2.tiimg.com/1949/c1a5dc90004ac539.png">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">MinHow&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        MinHow&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        一个专注 WEB 开发的技术博客
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="MinHow" target="_blank" href="//minhow.com">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/wongminho">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/WongMinHo">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter" target="_blank" href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-CF/CF427" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      CF#427(Div.2)题解
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/题解/">题解</a>
+                  
+                      <a href="/categories/比赛/">比赛</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2017-08-02
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <p>涨回1500…</p>
+<a id="more"></a>
+<h1 id="A-Key-races"><a href="#A-Key-races" class="headerlink" title="A. Key races"></a>A. Key races</h1><p><a href="http://codeforces.com/contest/835/problem/A" target="_blank" rel="noopener">传送门</a></p>
+<h2 id="题意-amp-思路"><a href="#题意-amp-思路" class="headerlink" title="题意&amp;思路"></a>题意&amp;思路</h2><blockquote>
+<p>给出s,v1,v2,t1,t2。分别是字符长度，选手一打字速度，选手二打字速度，选手一的ping，选手二的ping。问服务器先收到谁的提交。</p>
+</blockquote>
+<blockquote>
+<p>签到题没什么好说的</p>
+</blockquote>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> s, v1, v2, p1, p2;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; s &gt;&gt; v1 &gt;&gt; v2 &gt;&gt; p1 &gt;&gt; p2;</span><br><span class="line">	<span class="keyword">int</span> t1 = s*v1 + <span class="number">2</span> * p1;</span><br><span class="line">	<span class="keyword">int</span> t2 = s*v2 + <span class="number">2</span> * p2;</span><br><span class="line">	<span class="keyword">if</span> (t1 &gt; t2)<span class="built_in">puts</span>(<span class="string">"Second"</span>);</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (t1 == t2)<span class="built_in">puts</span>(<span class="string">"Friendship"</span>);</span><br><span class="line">	<span class="keyword">else</span> <span class="built_in">puts</span>(<span class="string">"First"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="B-The-number-on-the-board"><a href="#B-The-number-on-the-board" class="headerlink" title="B. The number on the board"></a>B. The number on the board</h1><p><a href="http://codeforces.com/contest/835/problem/B" target="_blank" rel="noopener">传送门</a></p>
+<h2 id="题意-amp-思路-1"><a href="#题意-amp-思路-1" class="headerlink" title="题意&amp;思路"></a>题意&amp;思路</h2><blockquote>
+<p>给出k和一个长整数n，问改变n中至少多少个数能使各位和大于等于k。</p>
+</blockquote>
+<blockquote>
+<p>贪心。先改变数字0，再改数字1······</p>
+</blockquote>
+<h3 id="代码-O-nlogn"><a href="#代码-O-nlogn" class="headerlink" title="代码  O(nlogn)"></a>代码  O(nlogn)</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> k;</span><br><span class="line">	<span class="keyword">int</span> s[<span class="number">100005</span>];</span><br><span class="line">	<span class="keyword">char</span> ch;</span><br><span class="line">	<span class="keyword">char</span> c[<span class="number">100005</span>];</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; k &gt;&gt; c;</span><br><span class="line">	<span class="keyword">long</span> <span class="keyword">long</span> sum = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; c[i] != <span class="string">'\0'</span>; i++)</span><br><span class="line">		sum += (c[i] - <span class="string">'0'</span>);</span><br><span class="line">	sort(c, c + <span class="built_in">strlen</span>(c));</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; c[i] != <span class="string">'\0'</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (sum &gt;= k)<span class="keyword">break</span>;</span><br><span class="line">		sum += (<span class="number">9</span>-(c[i] - <span class="string">'0'</span>));</span><br><span class="line">		cnt++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; cnt &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="代码-O-n"><a href="#代码-O-n" class="headerlink" title="代码 O(n)"></a>代码 O(n)</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> k;</span><br><span class="line">	<span class="keyword">char</span> c[<span class="number">100005</span>];</span><br><span class="line">	<span class="keyword">int</span> s[<span class="number">100005</span>];</span><br><span class="line">	<span class="keyword">int</span> a[<span class="number">15</span>]; <span class="built_in">memset</span>(a, <span class="number">0</span>, <span class="keyword">sizeof</span>(a));<span class="comment">//a[i]记录数字i出现的次数</span></span><br><span class="line">	</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; k &gt;&gt; c;</span><br><span class="line">	<span class="keyword">long</span> <span class="keyword">long</span> sum = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; c[i] != <span class="string">'\0'</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		sum += (c[i] - <span class="string">'0'</span>);</span><br><span class="line">		a[c[i] - <span class="string">'0'</span>]++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/*for (int i = 0; i &lt; 10; i++)</span></span><br><span class="line"><span class="comment">		printf("%d", a[i]);*/</span></span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span> (k &gt; sum)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (a[i] &gt; (k - sum + <span class="number">8</span> - i) / (<span class="number">9</span> - i))</span><br><span class="line">		&#123;</span><br><span class="line">			cnt += (k - sum + <span class="number">8</span> - i) / (<span class="number">9</span> - i);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			cnt += a[i];</span><br><span class="line">			sum += a[i] * (<span class="number">9</span> - i);</span><br><span class="line">		&#125;</span><br><span class="line">		i++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; cnt &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="C-Star-sky"><a href="#C-Star-sky" class="headerlink" title="C. Star sky"></a>C. Star sky</h1><h2 id="题意-amp-思路-2"><a href="#题意-amp-思路-2" class="headerlink" title="题意&amp;思路"></a>题意&amp;思路</h2><blockquote>
+<p>在二维平面上有很多个星星，每个星星都有自己的亮度si，每过一单位时间si+1，若si超过c则变为0。有k次询问，每次询问回答(x1,y1)到(x2,y2)中星星的总亮度。</p>
+</blockquote>
+<blockquote>
+<p>这道题运用到了二维前缀和的思想，amount(p,x1,y1,x2,y2)=cnt[p][x2][y2]-cnt[p][x1-1][y2]-cnt[p][x2][y1-1]+cnt[p][x1-1][y1-1].注意对于不同亮度要分开记录。</p>
+</blockquote>
+<p><img src="http://i2.tiimg.com/1949/c1a5dc90004ac539.png" alt=""></p>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">104</span>][<span class="number">104</span>][<span class="number">12</span>];</span><br><span class="line"><span class="keyword">int</span> ma[<span class="number">104</span>][<span class="number">104</span>][<span class="number">12</span>];</span><br><span class="line"><span class="keyword">int</span> g0[<span class="number">104</span>][<span class="number">104</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n, q, c;</span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>,&amp;n,&amp;q,&amp;c)==<span class="number">3</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">memset</span>(dp, <span class="number">0</span>, <span class="keyword">sizeof</span>(dp));</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">int</span> x, y, t;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;x, &amp;y, &amp;t);</span><br><span class="line">				dp[x][y][t]++;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">100</span>; i++)</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= <span class="number">100</span>; j++)</span><br><span class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt;= <span class="number">10</span>; k++)</span><br><span class="line">					dp[i][j][k] += dp[i - <span class="number">1</span>][j][k] + dp[i][j - <span class="number">1</span>][k]-dp[i<span class="number">-1</span>][j<span class="number">-1</span>][k];</span><br><span class="line">	<span class="comment">/*	for (int i = 1; i &lt; 20; i++)</span></span><br><span class="line"><span class="comment">		&#123;</span></span><br><span class="line"><span class="comment">			for (int j = 1; j &lt; 20; j++)</span></span><br><span class="line"><span class="comment">				printf("%d",dp[i][j][0] );</span></span><br><span class="line"><span class="comment">			puts("");</span></span><br><span class="line"><span class="comment">		&#125;*/</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; q; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">int</span> t, x1, x2, y1, y2;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">"%d%d%d%d%d"</span>, &amp;t, &amp;x1, &amp;y1, &amp;x2, &amp;y2);</span><br><span class="line">			<span class="keyword">long</span> <span class="keyword">long</span> ans = <span class="number">0</span>;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt;= <span class="number">10</span>; k++)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">long</span> <span class="keyword">long</span> temp = (dp[x2][y2][k] - dp[x1 - <span class="number">1</span>][y2][k] - dp[x2][y1 - <span class="number">1</span>][k] + dp[x1 - <span class="number">1</span>][y1 - <span class="number">1</span>][k])*((t + k) % (c + <span class="number">1</span>));<span class="comment">///</span></span><br><span class="line">				ans += temp;</span><br><span class="line">				<span class="comment">//ans += temp;printf("%d %d %d\n",k,temp,ans);</span></span><br><span class="line">			&#125;</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="D-Palindromic-characteristics"><a href="#D-Palindromic-characteristics" class="headerlink" title="D. Palindromic characteristics"></a>D. Palindromic characteristics</h1><h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><blockquote>
+<p>定义了k阶回文串当且仅当它是回文串且左右两半部分都是k-1阶回文串。一阶回文串是普通回文串。</p>
+</blockquote>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><blockquote>
+<p>由观察得：</p>
+<p>1、如果一个串是k阶回文串那么它是k-1阶回文串。</p>
+<p>2、k阶回文串左半部分是k-1阶回文串。</p>
+</blockquote>
+<blockquote>
+<p>建立如下dp:dp[l][r]代表l到r中最大阶回文串的阶数。<br>当l=r或l=r-1时可以直接计算。<br>对于r-l&gt;1，若s[l]!=s[r]||dp[l+1][r-1]=0则dp[l][r]=0;否则dp[l][r]=dp[l][m]+1,m=(l+r+1)/2-1;<br>有了如上dp便可以很快地算出答案了。</p>
+</blockquote>
+<h3 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxN = <span class="number">5005</span>;</span><br><span class="line"><span class="keyword">int</span> dp[maxN][maxN];</span><br><span class="line"><span class="keyword">int</span> ans[maxN];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">string</span> s;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; s;</span><br><span class="line">	<span class="keyword">int</span> n = (<span class="keyword">int</span>)s.size();</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> len = <span class="number">1</span>; len &lt;= n; len++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> l = <span class="number">0</span>; l &lt; n - len + <span class="number">1</span>; l++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">int</span> r = len + l;</span><br><span class="line">			<span class="keyword">if</span> (len == <span class="number">1</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				dp[l][r] = <span class="number">1</span>;</span><br><span class="line">				<span class="keyword">continue</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span> (len == <span class="number">2</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				dp[l][r] = (s[l] == s[r<span class="number">-1</span>] ? <span class="number">2</span> : <span class="number">0</span>);</span><br><span class="line">				<span class="keyword">continue</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span> (s[l] != s[r - <span class="number">1</span>] || dp[l + <span class="number">1</span>][r - <span class="number">1</span>] == <span class="number">0</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">continue</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">int</span> m = (l + r) / <span class="number">2</span>;</span><br><span class="line">			<span class="keyword">if</span> (len &amp; <span class="number">1</span>) &#123;</span><br><span class="line">				<span class="keyword">if</span> (dp[l][m] &amp;&amp; dp[m + <span class="number">1</span>][r]) &#123;</span><br><span class="line">					dp[l][r] = dp[l][m] + <span class="number">1</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="keyword">if</span> (dp[l][m] &amp;&amp; dp[m][r]) &#123;</span><br><span class="line">					dp[l][r] = dp[l][m] + <span class="number">1</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> len = <span class="number">1</span>; len &lt;= n; len++) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> l = <span class="number">0</span>; l &lt; n - len + <span class="number">1</span>; l++) &#123;</span><br><span class="line">			ans[dp[l][l + len]]++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = n - <span class="number">1</span>; i &gt;= <span class="number">1</span>; i--) &#123;<span class="comment">//k阶回文串必为K-1阶回文串</span></span><br><span class="line">		ans[i] += ans[i + <span class="number">1</span>];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; ans[i] &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年12月05日 18:24</p>
+        <p>原始链接： <a class="post-url" href="/2017/08/02/CF/CF427/" title="CF#427(Div.2)题解">http://yoursite.com/2017/08/02/CF/CF427/</a></p>
+        <footer>
+            <a href="http://yoursite.com">
+                <img src="/images/logo.png" alt="John Doe">
+                John Doe
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/08/02/CF/CF427/&title=《CF#427(Div.2)题解》 — Hexo&pic=http://yoursite.comimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/08/02/CF/CF427/&title=《CF#427(Div.2)题解》 — Hexo&source=涨回1500…" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/08/02/CF/CF427/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《CF#427(Div.2)题解》 — Hexo&url=http://yoursite.com/2017/08/02/CF/CF427/&via=http://yoursite.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/08/02/CF/CF427/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2017/08/02/CF/CF427/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/ACM/" class="color4">ACM</a>
+      
+    <a href="/tags/C/C++/" class="color1">C/C++</a>
+      
+    <a href="/tags/前缀和/" class="color4">前缀和</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#A-Key-races"><span class="post-toc-text">A. Key races</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#题意-amp-思路"><span class="post-toc-text">题意&amp;思路</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码"><span class="post-toc-text">代码</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#B-The-number-on-the-board"><span class="post-toc-text">B. The number on the board</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#题意-amp-思路-1"><span class="post-toc-text">题意&amp;思路</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码-O-nlogn"><span class="post-toc-text">代码  O(nlogn)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码-O-n"><span class="post-toc-text">代码 O(n)</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#C-Star-sky"><span class="post-toc-text">C. Star sky</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#题意-amp-思路-2"><span class="post-toc-text">题意&amp;思路</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码-1"><span class="post-toc-text">代码</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#D-Palindromic-characteristics"><span class="post-toc-text">D. Palindromic characteristics</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#题意"><span class="post-toc-text">题意</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#思路"><span class="post-toc-text">思路</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码-2"><span class="post-toc-text">代码</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2017/08/02/math/数学公式试验/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          数学公式演示
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2017/07/31/primenumbers/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">素数相关算法</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 John Doe<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://yoursite.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/Blog/">Blog</a><a class="category-link" href="/categories/DP/">DP</a><a class="category-link" href="/categories/公式/">公式</a><a class="category-link" href="/categories/博弈/">博弈</a><a class="category-link" href="/categories/博弈论/">博弈论</a><a class="category-link" href="/categories/字符串/">字符串</a><a class="category-link" href="/categories/数论/">数论</a><a class="category-link" href="/categories/算法/">算法</a><a class="category-link" href="/categories/题解/">题解</a><a class="category-link" href="/categories/题解/比赛/">比赛</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/ACM/" style="font-size: 17.5px;">ACM</a> <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/C-C/" style="font-size: 15px;">C/C++</a> <a href="/tags/DP/" style="font-size: 10px;">DP</a> <a href="/tags/KMP/" style="font-size: 10px;">KMP</a> <a href="/tags/bfs/" style="font-size: 10px;">bfs</a> <a href="/tags/dp/" style="font-size: 10px;">dp</a> <a href="/tags/polya/" style="font-size: 10px;">polya</a> <a href="/tags/二分搜索/" style="font-size: 10px;">二分搜索</a> <a href="/tags/前缀和/" style="font-size: 10px;">前缀和</a> <a href="/tags/博弈/" style="font-size: 20px;">博弈</a> <a href="/tags/实现/" style="font-size: 10px;">实现</a> <a href="/tags/数学/" style="font-size: 12.5px;">数学</a> <a href="/tags/斐波那契数列/" style="font-size: 10px;">斐波那契数列</a> <a href="/tags/模拟/" style="font-size: 10px;">模拟</a> <a href="/tags/素数/" style="font-size: 10px;">素数</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/ACM/" style="font-size: 17.5px;">ACM</a> <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/C-C/" style="font-size: 15px;">C/C++</a> <a href="/tags/DP/" style="font-size: 10px;">DP</a> <a href="/tags/KMP/" style="font-size: 10px;">KMP</a> <a href="/tags/bfs/" style="font-size: 10px;">bfs</a> <a href="/tags/dp/" style="font-size: 10px;">dp</a> <a href="/tags/polya/" style="font-size: 10px;">polya</a> <a href="/tags/二分搜索/" style="font-size: 10px;">二分搜索</a> <a href="/tags/前缀和/" style="font-size: 10px;">前缀和</a> <a href="/tags/博弈/" style="font-size: 20px;">博弈</a> <a href="/tags/实现/" style="font-size: 10px;">实现</a> <a href="/tags/数学/" style="font-size: 12.5px;">数学</a> <a href="/tags/斐波那契数列/" style="font-size: 10px;">斐波那契数列</a> <a href="/tags/模拟/" style="font-size: 10px;">模拟</a> <a href="/tags/素数/" style="font-size: 10px;">素数</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

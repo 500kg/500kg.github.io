@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>HDU-1850 Being a Good Boy in Spring Festival | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="MinHow,MinHow's Blog">
+  
+  <meta name="description" content="传送门">
+<meta name="keywords" content="博弈">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HDU-1850 Being a Good Boy in Spring Festival">
+<meta property="og:url" content="http://yoursite.com/2017/08/08/GameTheory/HDU-1850 Being a Good Boy in Spring Festival/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="传送门">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-12-05T10:24:03.241Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HDU-1850 Being a Good Boy in Spring Festival">
+<meta name="twitter:description" content="传送门">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">MinHow&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        MinHow&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        一个专注 WEB 开发的技术博客
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="MinHow" target="_blank" href="//minhow.com">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/wongminho">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/WongMinHo">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter" target="_blank" href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-GameTheory/HDU-1850 Being a Good Boy in Spring Festival" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      HDU-1850 Being a Good Boy in Spring Festival
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/博弈/">博弈</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2017-08-08
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1850" target="_blank" rel="noopener">传送门</a></p>
+<a id="more"></a>
+<h1 id="HDU-1850-Being-a-Good-Boy-in-Spring-Festival"><a href="#HDU-1850-Being-a-Good-Boy-in-Spring-Festival" class="headerlink" title="HDU-1850 Being a Good Boy in Spring Festival"></a>HDU-1850 Being a Good Boy in Spring Festival</h1><h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h2><blockquote>
+<p>一年在外 父母时刻牵挂 </p>
+<p>春节回家 你能做几天好孩子吗 </p>
+<p>寒假里尝试做做下面的事情吧 </p>
+<p>陪妈妈逛一次菜场 </p>
+<p>悄悄给爸爸买个小礼物 </p>
+<p>主动地 强烈地 要求洗一次碗 </p>
+<p>某一天早起 给爸妈用心地做回早餐 </p>
+<p>如果愿意 你还可以和爸妈说 </p>
+<p>咱们玩个小游戏吧 ACM课上学的呢～ </p>
+<p>下面是一个二人小游戏：桌子上有M堆扑克牌；每堆牌的数量分别为Ni(i=1…M)；两人轮流进行；每走一步可以任意选择一堆并取走其中的任意张牌；桌子上的扑克全部取光，则游戏结束；最后一次取牌的人为胜者。<br>现在我们不想研究到底先手为胜还是为负，我只想问大家： </p>
+<p>——“先手的人如果想赢，第一步有几种选择呢？” </p>
+</blockquote>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><blockquote>
+<p>输入数据包含多个测试用例，每个测试用例占2行，首先一行包含一个整数M(1&lt;M&lt;=100)，表示扑克牌的堆数，紧接着一行包含M个整数Ni(1&lt;=Ni&lt;=1000000，i=1…M)，分别表示M堆扑克的数量。M为0则表示输入数据的结束。</p>
+</blockquote>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><blockquote>
+<p>如果先手的人能赢，请输出他第一步可行的方案数，否则请输出0，每个实例的输出占一行。 </p>
+</blockquote>
+<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><blockquote>
+<p>3</p>
+<p>5 7 9</p>
+<p>0</p>
+</blockquote>
+<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><blockquote>
+<p>1</p>
+</blockquote>
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><blockquote>
+<p>中文题面啊~~</p>
+</blockquote>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><blockquote>
+<p>NIM博弈，需要考虑的是必胜态有几种转移至必败态的选择。</p>
+</blockquote>
+<blockquote>
+<p>对a1^a2^a3····^an=k(k!=0)</p>
+</blockquote>
+<blockquote>
+<p>若ai-k^ai&gt;0则可以通过减少ai至某一值使得总的异或为0（即必败态）</p>
+</blockquote>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> a[<span class="number">1000006</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n) == <span class="number">1</span> &amp;&amp; n)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">"%d"</span>, a + i);</span><br><span class="line">			sum ^= a[i];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (sum == <span class="number">0</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">puts</span>(<span class="string">"0"</span>);</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">			<span class="keyword">if</span> (a[i] &gt;( sum^a[i]))</span><br><span class="line">				cnt++;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; cnt &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年12月05日 18:24</p>
+        <p>原始链接： <a class="post-url" href="/2017/08/08/GameTheory/HDU-1850 Being a Good Boy in Spring Festival/" title="HDU-1850 Being a Good Boy in Spring Festival">http://yoursite.com/2017/08/08/GameTheory/HDU-1850 Being a Good Boy in Spring Festival/</a></p>
+        <footer>
+            <a href="http://yoursite.com">
+                <img src="/images/logo.png" alt="John Doe">
+                John Doe
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/08/08/GameTheory/HDU-1850 Being a Good Boy in Spring Festival/&title=《HDU-1850 Being a Good Boy in Spring Festival》 — Hexo&pic=http://yoursite.comimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/08/08/GameTheory/HDU-1850 Being a Good Boy in Spring Festival/&title=《HDU-1850 Being a Good Boy in Spring Festival》 — Hexo&source=传送门" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/08/08/GameTheory/HDU-1850 Being a Good Boy in Spring Festival/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《HDU-1850 Being a Good Boy in Spring Festival》 — Hexo&url=http://yoursite.com/2017/08/08/GameTheory/HDU-1850 Being a Good Boy in Spring Festival/&via=http://yoursite.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/08/08/GameTheory/HDU-1850 Being a Good Boy in Spring Festival/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2017/08/08/GameTheory/HDU-1850 Being a Good Boy in Spring Festival/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/博弈/" class="color3">博弈</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#HDU-1850-Being-a-Good-Boy-in-Spring-Festival"><span class="post-toc-text">HDU-1850 Being a Good Boy in Spring Festival</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Problem-Description"><span class="post-toc-text">Problem Description</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Input"><span class="post-toc-text">Input</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Output"><span class="post-toc-text">Output</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Sample-Input"><span class="post-toc-text">Sample Input</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Sample-Output"><span class="post-toc-text">Sample Output</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#题意"><span class="post-toc-text">题意</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#思路"><span class="post-toc-text">思路</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#代码"><span class="post-toc-text">代码</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2017/08/08/GameTheory/HDU-1079 Calendar Game/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          HDU-1079 Calendar Game
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2017/08/08/GameTheory/HDU-1525 Euclid's Game/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">HDU-1525 Euclid&#39;s Game</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 John Doe<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://yoursite.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/Blog/">Blog</a><a class="category-link" href="/categories/DP/">DP</a><a class="category-link" href="/categories/公式/">公式</a><a class="category-link" href="/categories/博弈/">博弈</a><a class="category-link" href="/categories/博弈论/">博弈论</a><a class="category-link" href="/categories/字符串/">字符串</a><a class="category-link" href="/categories/数论/">数论</a><a class="category-link" href="/categories/算法/">算法</a><a class="category-link" href="/categories/题解/">题解</a><a class="category-link" href="/categories/题解/比赛/">比赛</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/ACM/" style="font-size: 17.5px;">ACM</a> <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/C-C/" style="font-size: 15px;">C/C++</a> <a href="/tags/DP/" style="font-size: 10px;">DP</a> <a href="/tags/KMP/" style="font-size: 10px;">KMP</a> <a href="/tags/bfs/" style="font-size: 10px;">bfs</a> <a href="/tags/dp/" style="font-size: 10px;">dp</a> <a href="/tags/polya/" style="font-size: 10px;">polya</a> <a href="/tags/二分搜索/" style="font-size: 10px;">二分搜索</a> <a href="/tags/前缀和/" style="font-size: 10px;">前缀和</a> <a href="/tags/博弈/" style="font-size: 20px;">博弈</a> <a href="/tags/实现/" style="font-size: 10px;">实现</a> <a href="/tags/数学/" style="font-size: 12.5px;">数学</a> <a href="/tags/斐波那契数列/" style="font-size: 10px;">斐波那契数列</a> <a href="/tags/模拟/" style="font-size: 10px;">模拟</a> <a href="/tags/素数/" style="font-size: 10px;">素数</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/ACM/" style="font-size: 17.5px;">ACM</a> <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/C-C/" style="font-size: 15px;">C/C++</a> <a href="/tags/DP/" style="font-size: 10px;">DP</a> <a href="/tags/KMP/" style="font-size: 10px;">KMP</a> <a href="/tags/bfs/" style="font-size: 10px;">bfs</a> <a href="/tags/dp/" style="font-size: 10px;">dp</a> <a href="/tags/polya/" style="font-size: 10px;">polya</a> <a href="/tags/二分搜索/" style="font-size: 10px;">二分搜索</a> <a href="/tags/前缀和/" style="font-size: 10px;">前缀和</a> <a href="/tags/博弈/" style="font-size: 20px;">博弈</a> <a href="/tags/实现/" style="font-size: 10px;">实现</a> <a href="/tags/数学/" style="font-size: 12.5px;">数学</a> <a href="/tags/斐波那契数列/" style="font-size: 10px;">斐波那契数列</a> <a href="/tags/模拟/" style="font-size: 10px;">模拟</a> <a href="/tags/素数/" style="font-size: 10px;">素数</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

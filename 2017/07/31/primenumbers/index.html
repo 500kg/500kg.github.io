@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>素数相关算法 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="MinHow,MinHow's Blog">
+  
+  <meta name="description" content="引言素数在ACM中出现得十分频繁。我在此简要写一下素数相关算法。">
+<meta name="keywords" content="ACM,数学,素数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="素数相关算法">
+<meta property="og:url" content="http://yoursite.com/2017/07/31/primenumbers/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="引言素数在ACM中出现得十分频繁。我在此简要写一下素数相关算法。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-12-05T10:24:03.286Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="素数相关算法">
+<meta name="twitter:description" content="引言素数在ACM中出现得十分频繁。我在此简要写一下素数相关算法。">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">MinHow&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        MinHow&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        一个专注 WEB 开发的技术博客
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="MinHow" target="_blank" href="//minhow.com">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/wongminho">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/WongMinHo">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter" target="_blank" href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-primenumbers" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      素数相关算法
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/算法/">算法</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2017-07-31
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h4 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h4><p>素数在ACM中出现得十分频繁。我在此简要写一下素数相关算法。</p>
+<a id="more"></a>
+<h2 id="一、朴素算法"><a href="#一、朴素算法" class="headerlink" title="一、朴素算法"></a>一、朴素算法</h2><blockquote>
+<p>对于判断素数而言，最朴素的算法是根据素数的定义：在[2,n-1]是否存在m使得n%m==0。时间复杂度为O(n)</p>
+</blockquote>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">isPrime</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">int</span> i;  </span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">2</span>; i &lt; n; ++i) &#123;  </span><br><span class="line">        <span class="keyword">if</span> (n % i == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>显然对于给定的n，任何大于sqrt(n)的数都不会是n的因子。故只需判断[2,sqrt(n)]中的所有数即可。时间复杂度为O(sqrt(n))</p>
+</blockquote>
+<h4 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">isPrime</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> n)</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> i;  </span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">2</span>; i * i &lt;= n; ++i) &#123;  </span><br><span class="line">        <span class="keyword">if</span> (n % i == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>对于这一算法，虽然仅仅是将i改为i*i，但在1s时间内可以处理的数可达10^16。</p>
+</blockquote>
+<h2 id="二、素数筛选法"><a href="#二、素数筛选法" class="headerlink" title="二、素数筛选法"></a>二、素数筛选法</h2><blockquote>
+<p>朴素方法可以判断某个数是否为素数，但对于某个区间内有多少个素数或是某个区间内有哪些素数这些问题，最优的朴素算法所需的时间也是O(n*sqrt(n))。而使用埃氏筛选法则可以将时间优化到O(n)。</p>
+</blockquote>
+<blockquote>
+<p>思路：默认2为素数，将所有2的倍数置为合数；再将3默认为素数，将所有3的倍数置为合数；遇到4–已被置为合数，跳过······</p>
+</blockquote>
+<h4 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e7</span> + <span class="number">5</span>;  </span><br><span class="line"><span class="keyword">int</span> pri[maxn];  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">getPrime</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;  </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n; ++i) pri[i] = i;  </span><br><span class="line">    pri[<span class="number">1</span>] = <span class="number">0</span>;  </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; ++i) &#123;  </span><br><span class="line">        <span class="keyword">if</span> (!pri[i]) <span class="keyword">continue</span>;  </span><br><span class="line">        pri[++pri[<span class="number">0</span>]] = i;  </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">2</span>; i * j &lt;= n &amp;&amp; j &lt; n; ++j) &#123;  </span><br><span class="line">            pri[i * j] = <span class="number">0</span>;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>以上代码由于重复计算并不是严格O(n)的。比如对于数30，它被2、3、5都置为合数（显然只需要置为合数一次就可以了）。一下算法可以在此基础上进行优化。</p>
+</blockquote>
+<h4 id="代码-3"><a href="#代码-3" class="headerlink" title="代码"></a>代码</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">1e7</span> + <span class="number">5</span>;  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">getPrime</span><span class="params">()</span></span>&#123;  </span><br><span class="line">    <span class="built_in">memset</span>(prime, <span class="number">0</span>, <span class="keyword">sizeof</span>(prime));  </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>;i &lt;= MAXN;i++) &#123;  </span><br><span class="line">        <span class="keyword">if</span> (!prime[i])prime[++prime[<span class="number">0</span>]] = i;  </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>;j &lt;= prime[<span class="number">0</span>] &amp;&amp; prime[j] &lt;= MAXN / i;j++) &#123;  </span><br><span class="line">            prime[prime[j] * i] = <span class="number">1</span>;  </span><br><span class="line">            <span class="keyword">if</span> (i%prime[j] == <span class="number">0</span>) <span class="keyword">break</span>;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="三、容斥原理"><a href="#三、容斥原理" class="headerlink" title="三、容斥原理"></a>三、容斥原理</h2><blockquote>
+<p>使用素数筛选法只能应对10^7左右的运算，对于10^8级别的运算有很大可能会MLE或者TLE。（例AOJ-AHU-557)</p>
+<p>此时可以考虑容斥原理。对于给出的n依次减去n/pi再加上n/(pi*pj)······并以此类推便可以得出结果（注意剪枝以防超时）</p>
+</blockquote>
+<h4 id="代码-4"><a href="#代码-4" class="headerlink" title="代码"></a>代码</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;  </span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;  </span><br><span class="line">   </span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">10005</span>;  </span><br><span class="line"><span class="keyword">int</span> sqrn, n, ans = <span class="number">0</span>;  </span><br><span class="line"><span class="keyword">bool</span> vis[maxn];  </span><br><span class="line"><span class="keyword">int</span> pri[<span class="number">1500</span>] = &#123;<span class="number">0</span>&#125;;  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;  </span><br><span class="line">    vis[<span class="number">1</span>] = <span class="literal">true</span>;  </span><br><span class="line">    <span class="keyword">int</span> k = <span class="number">0</span>;  </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; maxn; i++)&#123;  </span><br><span class="line">        <span class="keyword">if</span>(!vis[i]) pri[k++] = i;  </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; k &amp;&amp; pri[j] * i &lt; maxn; j++)&#123;  </span><br><span class="line">            vis[pri[j] * i] = <span class="literal">true</span>;  </span><br><span class="line">            <span class="keyword">if</span>(i % pri[j] == <span class="number">0</span>) <span class="keyword">break</span>;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> num, <span class="keyword">int</span> res, <span class="keyword">int</span> index)</span></span>&#123;  </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = index; pri[i] &lt;= sqrn; i++)&#123;  </span><br><span class="line">        <span class="keyword">if</span>(<span class="number">1L</span>L * res * pri[i] &gt; n)&#123;  </span><br><span class="line">            <span class="keyword">return</span>;  </span><br><span class="line">        &#125;  </span><br><span class="line">        dfs(num + <span class="number">1</span>, res * pri[i], i+<span class="number">1</span>);  </span><br><span class="line">        <span class="keyword">if</span>(num % <span class="number">2</span> == <span class="number">1</span>)&#123;  </span><br><span class="line">            ans -= n / (res * pri[i]);  </span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;  </span><br><span class="line">            ans += n / (res * pri[i]);  </span><br><span class="line">        &#125;  </span><br><span class="line">   </span><br><span class="line">        <span class="keyword">if</span>(num == <span class="number">1</span>) ans++;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;  </span><br><span class="line">    init();  </span><br><span class="line">    <span class="keyword">while</span>(~<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n) &amp;&amp; n)&#123;  </span><br><span class="line">        ans = n;  </span><br><span class="line">        sqrn = <span class="built_in">sqrt</span>((<span class="keyword">double</span>)n);  </span><br><span class="line">        dfs(<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>);  </span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans<span class="number">-1</span>);  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="四、区间筛法"><a href="#四、区间筛法" class="headerlink" title="四、区间筛法"></a>四、区间筛法</h2><blockquote>
+<p>区间筛是针对一类诸如查询区间[a,b]中素数个数(0&lt;a&lt;b&lt;10^12,b-a&lt;10^6)对于这一问题，朴素的埃氏筛和上面提到的容斥原理都无法解决，因此我们需要区间筛</p>
+</blockquote>
+<h4 id="代码-5"><a href="#代码-5" class="headerlink" title="代码"></a>代码</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">代码还不会撒~</span><br></pre></td></tr></table></figure>
+<h2 id="五、Meissel-Lehmer算法"><a href="#五、Meissel-Lehmer算法" class="headerlink" title="五、Meissel-Lehmer算法"></a>五、Meissel-Lehmer算法</h2><blockquote>
+<p>黑科技，可以再3.82ms内判断出10^10内的素数个数。</p>
+</blockquote>
+<h4 id="代码-6"><a href="#代码-6" class="headerlink" title="代码"></a>代码</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span>    <span class="meta-string">&lt;stdio.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>    <span class="meta-string">&lt;string.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>    <span class="meta-string">&lt;stdlib.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>    <span class="meta-string">&lt;time.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>    <span class="meta-string">&lt;math.h&gt;  </span></span></span><br><span class="line">   </span><br><span class="line">__int64 *primarr, *v;  </span><br><span class="line">__int64 q = <span class="number">1</span>, p = <span class="number">1</span>;  </span><br><span class="line">   </span><br><span class="line"><span class="comment">//π(n)  </span></span><br><span class="line">__<span class="function">int64 <span class="title">pi</span><span class="params">(__int64 n, __int64 primarr[], __int64 len)</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    __int64 i = <span class="number">0</span>, mark = <span class="number">0</span>;  </span><br><span class="line">    <span class="keyword">for</span> (i = len - <span class="number">1</span>; i &gt; <span class="number">0</span>; i--) &#123;  </span><br><span class="line">        <span class="keyword">if</span> (primarr[i] &lt; n) &#123;  </span><br><span class="line">            mark = <span class="number">1</span>;  </span><br><span class="line">            <span class="keyword">break</span>;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">if</span> (mark)  </span><br><span class="line">        <span class="keyword">return</span> i + <span class="number">1</span>;  </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;  </span><br><span class="line">   </span><br><span class="line"><span class="comment">//Φ(x,a)  </span></span><br><span class="line">__<span class="function">int64 <span class="title">phi</span><span class="params">(__int64 x, __int64 a, __int64 m)</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="keyword">if</span> (a == m)  </span><br><span class="line">        <span class="keyword">return</span> (x / q) * p + v[x % q];  </span><br><span class="line">    <span class="keyword">if</span> (x &lt; primarr[a - <span class="number">1</span>])  </span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;  </span><br><span class="line">    <span class="keyword">return</span> phi(x, a - <span class="number">1</span>, m) - phi(x / primarr[a - <span class="number">1</span>], a - <span class="number">1</span>, m);  </span><br><span class="line">&#125;  </span><br><span class="line">   </span><br><span class="line">__<span class="function">int64 <span class="title">prime</span><span class="params">(__int64 n)</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="keyword">char</span> *mark;  </span><br><span class="line">    __int64 mark_len;  </span><br><span class="line">    __int64 count = <span class="number">0</span>;  </span><br><span class="line">    __int64 i, j, m = <span class="number">7</span>;  </span><br><span class="line">    __int64 sum = <span class="number">0</span>, s = <span class="number">0</span>;  </span><br><span class="line">    __int64 len, len2, len3;  </span><br><span class="line">   </span><br><span class="line">    mark_len = (n &lt; <span class="number">10000</span>) ? <span class="number">10002</span> : ((__int64)<span class="built_in">exp</span>(<span class="number">2.0</span> / <span class="number">3</span> * <span class="built_in">log</span>(n)) + <span class="number">1</span>);  </span><br><span class="line">   </span><br><span class="line">    <span class="comment">//筛选n^(2/3)或n内的素数  </span></span><br><span class="line">    mark = (<span class="keyword">char</span> *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">char</span>) * mark_len);  </span><br><span class="line">    <span class="built_in">memset</span>(mark, <span class="number">0</span>, <span class="keyword">sizeof</span>(<span class="keyword">char</span>) * mark_len);  </span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">2</span>; i &lt; (__int64)<span class="built_in">sqrt</span>(mark_len); i++) &#123;  </span><br><span class="line">        <span class="keyword">if</span> (mark[i])  </span><br><span class="line">            <span class="keyword">continue</span>;  </span><br><span class="line">        <span class="keyword">for</span> (j = i + i; j &lt; mark_len; j += i)  </span><br><span class="line">            mark[j] = <span class="number">1</span>;  </span><br><span class="line">    &#125;  </span><br><span class="line">    mark[<span class="number">0</span>] = mark[<span class="number">1</span>] = <span class="number">1</span>;  </span><br><span class="line">   </span><br><span class="line">    <span class="comment">//统计素数数目  </span></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; mark_len; i++)  </span><br><span class="line">        <span class="keyword">if</span> (!mark[i])  </span><br><span class="line">            count++;  </span><br><span class="line">   </span><br><span class="line">    <span class="comment">//保存素数  </span></span><br><span class="line">    primarr = (__int64 *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(__int64) * count);  </span><br><span class="line">    j = <span class="number">0</span>;  </span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; mark_len; i++)  </span><br><span class="line">        <span class="keyword">if</span> (!mark[i])  </span><br><span class="line">            primarr[j++] = i;  </span><br><span class="line">   </span><br><span class="line">    <span class="keyword">if</span> (n &lt; <span class="number">10000</span>)  </span><br><span class="line">        <span class="keyword">return</span> pi(n, primarr, count);  </span><br><span class="line">   </span><br><span class="line">    <span class="comment">//n^(1/3)内的素数数目  </span></span><br><span class="line">    len = pi((__int64)<span class="built_in">exp</span>(<span class="number">1.0</span> / <span class="number">3</span> * <span class="built_in">log</span>(n)), primarr, count);  </span><br><span class="line">    <span class="comment">//n^(1/2)内的素数数目  </span></span><br><span class="line">    len2 = pi((__int64)<span class="built_in">sqrt</span>(n), primarr, count);  </span><br><span class="line">    <span class="comment">//n^（2/3)内的素数数目  </span></span><br><span class="line">    len3 = pi(mark_len - <span class="number">1</span>, primarr, count);  </span><br><span class="line">   </span><br><span class="line">    <span class="comment">//乘积个数  </span></span><br><span class="line">    j = mark_len - <span class="number">2</span>;  </span><br><span class="line">    <span class="keyword">for</span> (i = (__int64)<span class="built_in">exp</span>(<span class="number">1.0</span> / <span class="number">3</span> * <span class="built_in">log</span>(n)); i &lt;= (__int64)<span class="built_in">sqrt</span>(n); i++) &#123;  </span><br><span class="line">        <span class="keyword">if</span> (!mark[i]) &#123;  </span><br><span class="line">            <span class="keyword">while</span> (i * j &gt; n) &#123;  </span><br><span class="line">                <span class="keyword">if</span> (!mark[j])  </span><br><span class="line">                    s++;  </span><br><span class="line">                j--;  </span><br><span class="line">            &#125;  </span><br><span class="line">            sum += s;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="built_in">free</span>(mark);  </span><br><span class="line">    sum = (len2 - len) * len3 - sum;  </span><br><span class="line">    sum += (len * (len - <span class="number">1</span>) - len2 * (len2 - <span class="number">1</span>)) / <span class="number">2</span>;  </span><br><span class="line">   </span><br><span class="line">    <span class="comment">//欧拉函数  </span></span><br><span class="line">    <span class="keyword">if</span> (m &gt; len)  </span><br><span class="line">        m = len;  </span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; m; i++) &#123;  </span><br><span class="line">        q *= primarr[i];  </span><br><span class="line">        p *= primarr[i] - <span class="number">1</span>;  </span><br><span class="line">    &#125;  </span><br><span class="line">    v = (__int64 *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(__int64) * q);  </span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; q; i++)  </span><br><span class="line">        v[i] = i;  </span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; m; i++)  </span><br><span class="line">        <span class="keyword">for</span> (j = q - <span class="number">1</span>; j &gt;= <span class="number">0</span>; j--)  </span><br><span class="line">            v[j] -= v[j / primarr[i]];  </span><br><span class="line">   </span><br><span class="line">    sum = phi(n, len, m) - sum + len - <span class="number">1</span>;  </span><br><span class="line">    <span class="built_in">free</span>(primarr);  </span><br><span class="line">    <span class="built_in">free</span>(v);  </span><br><span class="line">    <span class="keyword">return</span> sum;  </span><br><span class="line">&#125;  </span><br><span class="line">   </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    __int64 n;  </span><br><span class="line">    __int64 count;  </span><br><span class="line">    <span class="keyword">int</span> h;  </span><br><span class="line">    <span class="keyword">clock_t</span> start, end;  </span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%I64d"</span>, &amp;n)!=EOF)  </span><br><span class="line">    &#123;  </span><br><span class="line">  </span><br><span class="line">        p=<span class="number">1</span>;  </span><br><span class="line">        q=<span class="number">1</span>;  </span><br><span class="line">        start = clock();  </span><br><span class="line">        count = prime(n);  </span><br><span class="line">        end = clock() - start;  </span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%I64d(%d亿)内的素数个数为%I64d\n"</span>,n,n/<span class="number">100000000</span>,count);  </span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"用时%lf毫秒\n"</span>,(<span class="keyword">double</span>)end/<span class="number">1000</span>);  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年12月05日 18:24</p>
+        <p>原始链接： <a class="post-url" href="/2017/07/31/primenumbers/" title="素数相关算法">http://yoursite.com/2017/07/31/primenumbers/</a></p>
+        <footer>
+            <a href="http://yoursite.com">
+                <img src="/images/logo.png" alt="John Doe">
+                John Doe
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/07/31/primenumbers/&title=《素数相关算法》 — Hexo&pic=http://yoursite.comimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/07/31/primenumbers/&title=《素数相关算法》 — Hexo&source=引言素数在ACM中出现得十分频繁。我在此简要写一下素数相关算法。" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/07/31/primenumbers/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《素数相关算法》 — Hexo&url=http://yoursite.com/2017/07/31/primenumbers/&via=http://yoursite.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/07/31/primenumbers/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2017/07/31/primenumbers/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/ACM/" class="color4">ACM</a>
+      
+    <a href="/tags/数学/" class="color3">数学</a>
+      
+    <a href="/tags/素数/" class="color3">素数</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#引言"><span class="post-toc-text">引言</span></a></li></ol><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、朴素算法"><span class="post-toc-text">一、朴素算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#代码"><span class="post-toc-text">代码</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#代码-1"><span class="post-toc-text">代码</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、素数筛选法"><span class="post-toc-text">二、素数筛选法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#代码-2"><span class="post-toc-text">代码</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#代码-3"><span class="post-toc-text">代码</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、容斥原理"><span class="post-toc-text">三、容斥原理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#代码-4"><span class="post-toc-text">代码</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、区间筛法"><span class="post-toc-text">四、区间筛法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#代码-5"><span class="post-toc-text">代码</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#五、Meissel-Lehmer算法"><span class="post-toc-text">五、Meissel-Lehmer算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#代码-6"><span class="post-toc-text">代码</span></a></li></ol>
+        </li></nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2017/08/02/CF/CF427/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          CF#427(Div.2)题解
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2017/07/31/暑期集训/HDU1372/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">HDU1372题解</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 John Doe<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://yoursite.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/Blog/">Blog</a><a class="category-link" href="/categories/DP/">DP</a><a class="category-link" href="/categories/公式/">公式</a><a class="category-link" href="/categories/博弈/">博弈</a><a class="category-link" href="/categories/博弈论/">博弈论</a><a class="category-link" href="/categories/字符串/">字符串</a><a class="category-link" href="/categories/数论/">数论</a><a class="category-link" href="/categories/算法/">算法</a><a class="category-link" href="/categories/题解/">题解</a><a class="category-link" href="/categories/题解/比赛/">比赛</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/ACM/" style="font-size: 17.5px;">ACM</a> <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/C-C/" style="font-size: 15px;">C/C++</a> <a href="/tags/DP/" style="font-size: 10px;">DP</a> <a href="/tags/KMP/" style="font-size: 10px;">KMP</a> <a href="/tags/bfs/" style="font-size: 10px;">bfs</a> <a href="/tags/dp/" style="font-size: 10px;">dp</a> <a href="/tags/polya/" style="font-size: 10px;">polya</a> <a href="/tags/二分搜索/" style="font-size: 10px;">二分搜索</a> <a href="/tags/前缀和/" style="font-size: 10px;">前缀和</a> <a href="/tags/博弈/" style="font-size: 20px;">博弈</a> <a href="/tags/实现/" style="font-size: 10px;">实现</a> <a href="/tags/数学/" style="font-size: 12.5px;">数学</a> <a href="/tags/斐波那契数列/" style="font-size: 10px;">斐波那契数列</a> <a href="/tags/模拟/" style="font-size: 10px;">模拟</a> <a href="/tags/素数/" style="font-size: 10px;">素数</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/ACM/" style="font-size: 17.5px;">ACM</a> <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/C-C/" style="font-size: 15px;">C/C++</a> <a href="/tags/DP/" style="font-size: 10px;">DP</a> <a href="/tags/KMP/" style="font-size: 10px;">KMP</a> <a href="/tags/bfs/" style="font-size: 10px;">bfs</a> <a href="/tags/dp/" style="font-size: 10px;">dp</a> <a href="/tags/polya/" style="font-size: 10px;">polya</a> <a href="/tags/二分搜索/" style="font-size: 10px;">二分搜索</a> <a href="/tags/前缀和/" style="font-size: 10px;">前缀和</a> <a href="/tags/博弈/" style="font-size: 20px;">博弈</a> <a href="/tags/实现/" style="font-size: 10px;">实现</a> <a href="/tags/数学/" style="font-size: 12.5px;">数学</a> <a href="/tags/斐波那契数列/" style="font-size: 10px;">斐波那契数列</a> <a href="/tags/模拟/" style="font-size: 10px;">模拟</a> <a href="/tags/素数/" style="font-size: 10px;">素数</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
